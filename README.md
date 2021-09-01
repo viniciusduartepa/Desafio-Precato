@@ -30,7 +30,7 @@ Routes:
             }
             
             
-  Creditors->
+  Debtors->
 
     GET "/debtors/index" = Retorna todos entes devedores cadastrados no Banco.
     
