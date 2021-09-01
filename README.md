@@ -60,8 +60,8 @@ Pagamentos->
     POST "/payments/create" 
       body:{
             "remessa":"X",
-            "creditor":"creditor_id", //Precisa ser um uuid valido,
-            "debtor":"debtor_id", //Precisa ser um uuid valido,
+            "creditor":"creditor_id", //Precisa estar em formato de uuid valido,
+            "debtor":"debtor_id", //Precisa estar em formato de uuid valido,
             "initialValue": X,
             "finalValue": Y,
             "data": "yyyy-mm-dd"

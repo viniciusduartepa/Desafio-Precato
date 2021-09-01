@@ -11,14 +11,14 @@ const DebtorController={
     async create(request: Request,response: Response): Promise<Response> {
         const debtorInfo = request.body;
         if (!(debtorInfo.name && debtorInfo.cnpj)) {
-            throw new Error('Missing required information to register an deditor');
+            return response.status(422).json({message:"Missing required information to register a Debtor"});
         }
 
         const  existentDebtor  = await new DebtorRepository().findByCnpj(
             debtorInfo.cnpj
         );
         if (existentDebtor) {
-            throw new Error('Cnpj already in use');
+            return response.status(422).json({message:"Cnpj already in use"});
         }
 
         const createdDebtor = await new DebtorRepository().create(debtorInfo);
