@@ -57,6 +57,18 @@ const PaymentController={
             });
             return response.json(payment);
         }
+        const payments= await new PaymentRepository(). findByCreditor(paymentInfo.creditor);
+
+        for(var i=0;i<payments.length;i++){
+            if(paymentInfo.remessa==payments[i].remessa){
+                const payment= await new PaymentRepository().create(
+                    {...paymentInfo,
+                     status:"Recusado",
+                     reason:"Remessa Invalida para esse Credor"
+                });
+                return response.status(201).json(payment);
+            }
+        }
 
         if(creditor.status=="Reprovado"){
             const payment= await new PaymentRepository().create(
@@ -83,19 +95,6 @@ const PaymentController={
                  reason:"Final value bigger then InitialValue"
             });
             return response.status(201).json(payment);
-        }
-
-        const payments= await new PaymentRepository(). findByCreditor(paymentInfo.creditor);
-
-        for(var i=0;i<payments.length;i++){
-            if(paymentInfo.remessa==payments[i].remessa){
-                const payment= await new PaymentRepository().create(
-                    {...paymentInfo,
-                     status:"Recusado",
-                     reason:"invalid Shipping"
-                });
-                return response.status(201).json(payment);
-            }
         }
 
         const payment= await new PaymentRepository().create(
