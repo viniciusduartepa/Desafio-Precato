@@ -19,6 +19,7 @@ Configurando o Ambiente:
 
 Routes:
   Creditors->
+
     GET "/creditors/index" = Retorna todos credores cadastrados no Banco.
     
     POST "/creditors/create" 
@@ -30,6 +31,7 @@ Routes:
             
             
   Creditors->
+
     GET "/debtors/index" = Retorna todos entes devedores cadastrados no Banco.
     
     POST "/debtors/create" 
@@ -40,6 +42,7 @@ Routes:
             
       
 Payments->
+
     GET "/payments/index" = Retorna todos pedidos de pagamento cadastrados no Banco.
     
     POST "/payments/create" 
