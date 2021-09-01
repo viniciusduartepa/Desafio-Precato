@@ -1,24 +1,36 @@
 # Desafio-Precato
 
 Técnologias utilizadas:
+
 -Node.js
+
 -PostgreSQL
+
 -Yarn
+
 -Express
+
 -Typescript
+
 -TypeORM
 
 
 Configurando o Ambiente:
+
 1°-Execute o comando Yarn para instalar as dependencias.
+
 2°-Cria um DataBase no PostgreSQL
+
 3°-Configure o arquivo .env de acordo com o .env.template
+
 4°-Execute o script: Yarn orm:run para criar as tabelas
+
 5°Para rodar a aplicação execute o script: yarn dev
 
 
+
 Routes:
-  Creditors->
+  Credores->
 
     GET "/creditors/index" = Retorna todos credores cadastrados no Banco.
     
@@ -30,7 +42,7 @@ Routes:
             }
             
             
-  Debtors->
+  Entes devedores->
 
     GET "/debtors/index" = Retorna todos entes devedores cadastrados no Banco.
     
@@ -41,7 +53,7 @@ Routes:
             }
             
       
-Payments->
+Pagamentos->
 
     GET "/payments/index" = Retorna todos pedidos de pagamento cadastrados no Banco.
     
