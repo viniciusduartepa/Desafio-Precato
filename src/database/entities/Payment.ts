@@ -9,7 +9,10 @@ import Creditor from './Creditor';
 class Payment {
     @PrimaryGeneratedColumn('uuid')
     id: string;
-  
+
+    @Column()
+    remessa: String;
+    
     @Column({name:"inital_value"})
     initialValue: number;
     

@@ -14,6 +14,12 @@ export class CreateTablePayment1630365030388 implements MigrationInterface {
                 default: 'uuid_generate_v4()',
               },
               {
+                name: 'remessa',
+                type: 'varchar',
+                length: '1000',
+                isNullable: true,
+              },
+              {
                 name: 'inital_value',
                 type: 'numeric',
                 precision: 12,

@@ -11,18 +11,18 @@ const CreditorController={
     async create(request: Request,response: Response): Promise<Response> {
         const creditorInfo = request.body;
         if (!(creditorInfo.name && creditorInfo.cpf && creditorInfo.status)) {
-            throw new Error('Missing required information to register an creditor');
+            return response.json({message:"Missing required information to register a Creditor"});
         }
 
         const  existentCreditor  = await new CreditorRepository().findByCpf(
             creditorInfo.cpf
         );
         if (existentCreditor) {
-            throw new Error('Cpf already in use');
+            return response.json({message:"Cpf already in use"});
         }
 
         if(creditorInfo.status!="Aprovado" && creditorInfo.status!="Reprovado"){
-          throw new Error('Invalid Status');
+            return response.json({message:"Invalid Status"});
         }
 
         const createdCreditor = await new CreditorRepository().create(creditorInfo);

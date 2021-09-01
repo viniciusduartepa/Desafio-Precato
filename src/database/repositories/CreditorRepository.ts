@@ -18,7 +18,8 @@ export default class CreditorRepository{
         const createdCreditor = await this.ormRepository.save(creditor);
     
         return createdCreditor;
-      }
+    }
+
     public async findByCpf(cpf: String): Promise<Creditor>{
         const [creditor] = await this.ormRepository.find({where:{cpf}});
         return creditor;
@@ -28,5 +29,5 @@ export default class CreditorRepository{
         const [creditor] = await this.ormRepository.find({where:{id}});
         return creditor;
     }
-    
+
 }
